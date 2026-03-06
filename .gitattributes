@@ -1,0 +1,1 @@
+stockscrape-package/data/* filter=lfs diff=lfs merge=lfs -text
