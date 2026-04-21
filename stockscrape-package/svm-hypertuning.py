@@ -4,6 +4,7 @@ from sklearn.metrics import accuracy_score, classification_report
 from sklearn import svm
 import matplotlib.pyplot as plt
 import pandas as pd
+import seaborn as sns
 
 from sklearn.metrics import precision_score, make_scorer
 
@@ -75,7 +76,7 @@ for x in range(1, 4): # x will be 1, 2 and 3
     
     
     # Initialize the base SVM model
-    base_svm = svm.SVC()
+    base_svm = svm.SVC(max_iter=1000000)
     
     # Setup GridSearchCV
     # cv=3 means 3-fold cross-validation. n_jobs=-1 uses all CPU cores.
@@ -89,6 +90,28 @@ for x in range(1, 4): # x will be 1, 2 and 3
     
     # Assign the best model found by the grid search to svm_model
     svm_model = grid_search.best_estimator_
+    # CV results into data frame
+    results_df = pd.DataFrame(grid_search.cv_results_)
+
+    # Filter for the 'linear' kernel
+    linear_results = results_df[results_df['param_kernel'] == 'linear']
+
+    # Since gamma didn't affect the linear kernel, we can group by C to get the unique scores
+    # (Taking the first value since all gammas for a given C will have the same score)
+    c_scores = linear_results.groupby('param_C')['mean_test_score'].first()
+
+    # Plotting the results as a line graph
+    plt.figure(figsize=(8, 5))
+    c_scores.plot(kind='line', marker='o', color='b', linewidth=2, markersize=8)
+
+    plt.title(f'SVM Grid Search Precision Scores (Linear Kernel) - {x} Day')
+    plt.xlabel('Parameter C')
+    plt.ylabel('Mean Test Score (Class 1 Precision)')
+    plt.grid(True, linestyle='--', alpha=0.7)
+
+    # Make sure the X-axis shows our specific C values cleanly
+    plt.xticks(c_scores.index) 
+    plt.show()
     # ---------------------------------------------------------
 
     # Printing accuracy on the validation and test set
