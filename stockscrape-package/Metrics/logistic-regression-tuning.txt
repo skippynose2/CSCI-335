@@ -1,0 +1,62 @@
+==========================================
+Processing 1-Day Forecast (Logistic Regression)
+==========================================
+Tuning hyperparameters for maximum precision...
+Best parameters found: {'C': 100, 'max_iter': 1000000, 'solver': 'liblinear'}
+
+1 Day Prediction metrics
+Accuracy on validation set: 93.05%
+Accuracy on test set: 94.50%
+
+Validation Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.97      0.88      0.92      1307
+           1       0.90      0.98      0.94      1383
+
+    accuracy                           0.93      2690
+   macro avg       0.94      0.93      0.93      2690
+weighted avg       0.93      0.93      0.93      2690
+
+
+==========================================
+Processing 2-Day Forecast (Logistic Regression)
+==========================================
+Tuning hyperparameters for maximum precision...
+Best parameters found: {'C': 0.001, 'max_iter': 1000000, 'solver': 'lbfgs'}
+
+2 Day Prediction metrics
+Accuracy on validation set: 73.46%
+Accuracy on test set: 72.72%
+
+Validation Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.72      0.73      0.72      1282
+           1       0.75      0.74      0.74      1408
+
+    accuracy                           0.73      2690
+   macro avg       0.73      0.73      0.73      2690
+weighted avg       0.73      0.73      0.73      2690
+
+
+==========================================
+Processing 3-Day Forecast (Logistic Regression)
+==========================================
+Tuning hyperparameters for maximum precision...
+Best parameters found: {'C': 0.001, 'max_iter': 1000000, 'solver': 'liblinear'}
+
+3 Day Prediction metrics
+Accuracy on validation set: 78.48%
+Accuracy on test set: 78.17%
+
+Validation Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.78      0.77      0.77      1284
+           1       0.79      0.80      0.79      1406
+
+    accuracy                           0.78      2690
+   macro avg       0.78      0.78      0.78      2690
+weighted avg       0.78      0.78      0.78      2690
+
