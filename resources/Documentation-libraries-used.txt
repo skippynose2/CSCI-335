@@ -1,0 +1,5 @@
+Sklearn Documentation link and userguide:
+https://scikit-learn.org/stable/user_guide.html
+
+Pandas Documentation:
+https://pandas.pydata.org/docs/
