@@ -11,3 +11,4 @@ logistic regression and SVM, and SVM respectively. Conclusively, the data and re
 buy decisions, these models are definitely powerful tools that can greatly assist in trade analytics.
 
 ## How to Run the Program
+Navigate to the code directory and run the file with py file-name.py. The file is named after the model it is.
